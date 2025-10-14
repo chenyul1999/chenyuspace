@@ -1,56 +1,150 @@
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
+/* -------- Base -------- */
+* {
   margin: 0;
   padding: 0;
-  background: #fafafa;
-  color: #333;
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "EB Garamond", "Noto Serif JP", serif;
+  color: #333;
+  background-color: #f9f8f6;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  transition: background 0.4s ease;
+}
+
+/* -------- Header -------- */
 header {
-  background: #f0f0f0;
-  padding: 2rem;
   text-align: center;
+  padding: 6rem 1rem 3rem;
+  background-color: #fafafa;
 }
 
 header h1 {
-  margin: 0;
   font-size: 2.5rem;
+  font-weight: 400;
+  color: #2b2b2b;
+  letter-spacing: 0.1em;
 }
 
-header nav a {
-  margin: 0 10px;
+header p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* -------- Navigation -------- */
+nav {
+  margin-top: 2rem;
+}
+
+nav a {
+  margin: 0 1rem;
   text-decoration: none;
-  color: #0077aa;
+  color: #4d4d4d;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
+nav a::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0%;
+  background: #4d4d4d;
+  transition: width 0.3s;
+  margin-top: 2px;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* -------- Section Layout -------- */
 section {
-  padding: 2rem;
   max-width: 800px;
-  margin: auto;
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
-  color: #555;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.1em;
 }
 
+p, li {
+  color: #444;
+}
+
+/* -------- Research List -------- */
+ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* -------- Gallery -------- */
 .gallery {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .gallery img {
-  width: 200px;
-  border-radius: 8px;
+  width: 100%;
+  border-radius: 4px;
+  filter: grayscale(40%) brightness(95%);
+  transition: all 0.6s ease;
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #eee;
-  font-size: 0.9rem;
-  color: #666;
+.gallery img:hover {
+  filter: grayscale(0%) brightness(105%);
+  transform: scale(1.02);
 }
+
+/* -------- Vlogs -------- */
+iframe {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  border: none;
+  filter: grayscale(30%) brightness(95%);
+  transition: filter 0.5s ease;
+}
+
+iframe:hover {
+  filter: grayscale(0%) brightness(100%);
+}
+
+/* -------- Contact -------- */
+#contact a {
+  text-decoration: none;
+  color: #4d4d4d;
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #6a
