@@ -67,7 +67,7 @@ nav a::after {
 }
 
 nav a:hover::after {
-  width: 100%; /* 只在文字长度下展开 */
+  width: 50%; /* 只在文字长度下展开 */
 }
 
 
