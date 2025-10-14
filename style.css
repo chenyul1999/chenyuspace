@@ -147,4 +147,20 @@ iframe:hover {
 }
 
 #contact a:hover {
-  color: #6a
+  color: #6a8f6b; /* soft moss green */
+}
+
+/* -------- Footer -------- */
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  color: #777;
+  font-size: 0.85rem;
+  background: #f3f3f2;
+}
+
+/* -------- Fade-in on Scroll -------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
