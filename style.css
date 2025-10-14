@@ -109,6 +109,8 @@ p, li {
   color: #444;
 }
 
+
+
 /* -------- Research List -------- */
 ul {
   list-style: none;
@@ -117,6 +119,56 @@ ul {
 
 li {
   margin-bottom: 0.5rem;
+}
+/* ========== Photo Gallery (Home) ========== */
+#photo {
+  text-align: center;
+}
+
+.photo-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 1rem 0 2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.photo-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex: 0 0 auto;
+  width: 240px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.category a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.category img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.category p {
+  margin-top: 0.6rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: #333;
 }
 
 /* -------- Gallery -------- */
@@ -163,4 +215,19 @@ footer {
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  nav a {
+    margin: 0 1rem;
+    font-size: 0.85rem;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .photo-slider {
+    gap: 1rem;
+  }
 }
