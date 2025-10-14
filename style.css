@@ -1,61 +1,63 @@
-/* -------- Base -------- */
-* {
+/* ========== Global Styles ========== */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html {
+  font-family: 'Noto Serif JP', serif;
+  background-color: #f9f9f7;
+  color: #333;
+  line-height: 1.8;
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "EB Garamond", "Noto Serif JP", serif;
-  color: #333;
-  background-color: #f9f8f6;
-  line-height: 1.8;
-  letter-spacing: 0.05em;
-  transition: background 0.4s ease;
+h1, h2 {
+  font-family: 'EB Garamond', serif;
+  letter-spacing: 0.04em;
+  color: #222;
 }
 
-/* -------- Header -------- */
+a {
+  color: #4d4d4d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #000;
+}
+
+/* ========== Header ========== */
 header {
   text-align: center;
-  padding: 6rem 1rem 3rem;
-  background-color: #fafafa;
+  padding: 4rem 1rem 3rem;
 }
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: #2b2b2b;
-  letter-spacing: 0.1em;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 header p {
   font-size: 1rem;
-  color: #666;
-  margin-top: 0.5rem;
-  font-style: italic;
+  color: #555;
+  letter-spacing: 0.05em;
 }
 
-/* -------- Navigation -------- */
+/* ========== Navigation ========== */
 nav {
   margin-top: 2rem;
-  display: flex;
-  justify-content: center; /* 链接居中 */
-  gap: 4rem; /* 调整每个链接间距，数值越大越分散 */
 }
 
 nav a {
+  margin: 0 2rem;
   text-decoration: none;
   color: #4d4d4d;
   font-size: 0.95rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  font-weight: 600; /* 加粗 */
   position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
   display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 nav a::after {
@@ -63,32 +65,29 @@ nav a::after {
   position: absolute;
   left: 50%;
   bottom: -3px;
+  height: 1px;
   width: 0;
-  height: 1.5px;
-  background-color: #4d4d4d;
-  transform: translateX(-50%);
+  background: #4d4d4d;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
 nav a:hover {
   transform: translateY(-1px);
-  color: #000;
 }
 
 nav a:hover::after {
   width: 100%;
-  left: 50%;
+  left: 0;
 }
 
-
-/* -------- Section Layout -------- */
+/* ========== Sections ========== */
 section {
   max-width: 800px;
   margin: 5rem auto;
   padding: 0 1.5rem;
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 section.visible {
@@ -96,71 +95,102 @@ section.visible {
   transform: translateY(0);
 }
 
-h2 {
-  font-size: 1.4rem;
-  font-weight: 400;
-  border-bottom: 1px solid #ccc;
+section h2 {
+  font-size: 1.6rem;
+  text-align: center;
   margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  letter-spacing: 0.1em;
+  color: #2b2b2b;
 }
 
-p, li {
+section p, section li {
+  font-size: 0.98rem;
   color: #444;
 }
 
-/* -------- Research List -------- */
 ul {
   list-style: none;
-  margin-top: 1rem;
+  padding: 0;
 }
 
-li {
-  margin-bottom: 0.5rem;
+ul li {
+  margin: 0.5rem 0;
 }
 
-/* -------- Gallery -------- */
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+/* ========== Photo Gallery (Home) ========== */
+#photo {
+  text-align: center;
 }
 
-.gallery img {
-  width: 100%;
-  border-radius: 4px;
-  filter: grayscale(40%) brightness(95%);
-  transition: all 0.6s ease;
+.photo-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 1rem 0 2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
 
-.gallery img:hover {
-  filter: grayscale(0%) brightness(105%);
-  transform: scale(1.02);
+.photo-slider::-webkit-scrollbar {
+  display: none;
 }
 
+.category {
+  flex: 0 0 auto;
+  width: 240px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-/* -------- Contact -------- */
-#contact a {
+.category a {
   text-decoration: none;
-  color: #4d4d4d;
-  transition: color 0.3s ease;
+  color: inherit;
 }
 
-#contact a:hover {
-  color: #6a8f6b; /* soft moss green */
+.category img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* -------- Footer -------- */
+.category img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.category p {
+  margin-top: 0.6rem;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: #333;
+}
+
+/* ========== Contact & Footer ========== */
+#contact p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 footer {
   text-align: center;
-  padding: 3rem 0;
-  color: #777;
+  padding: 2rem 0;
   font-size: 0.85rem;
-  background: #f3f3f2;
+  color: #666;
+  border-top: 1px solid #ddd;
 }
 
-/* -------- Fade-in on Scroll -------- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  nav a {
+    margin: 0 1rem;
+    font-size: 0.85rem;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .photo-slider {
+    gap: 1rem;
+  }
 }
