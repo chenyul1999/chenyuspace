@@ -40,11 +40,21 @@ header p {
 }
 
 /* -------- Navigation -------- */
+nav {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center; /* 链接居中 */
+  gap: 4rem; /* 调整每个链接间距，数值越大越分散 */
+}
+
 nav a {
+  text-decoration: none;
+  color: #4d4d4d;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  font-weight: 600; /* 加粗 */
   position: relative;
   display: inline-block;
-  color: #333;
-  text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -55,19 +65,19 @@ nav a::after {
   bottom: -3px;
   width: 0;
   height: 1.5px;
-  background-color: #333;
-  transition: width 0.3s ease, left 0.3s ease;
+  background-color: #4d4d4d;
   transform: translateX(-50%);
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
 nav a:hover {
-  transform: translateY(-1px); /* 轻微上浮 */
-  color: #000; /* 可选：hover 变深色 */
+  transform: translateY(-1px);
+  color: #000;
 }
 
 nav a:hover::after {
-  width: 100%; /* 只和文字一样宽 */
-  left: 50%;   /* 从中间向两边展开 */
+  width: 100%;
+  left: 50%;
 }
 
 
