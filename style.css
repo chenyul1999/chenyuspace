@@ -42,33 +42,37 @@ header p {
 /* -------- Navigation -------- */
 nav {
   margin-top: 2rem;
+  text-align: center; /* 可以保留居中，不影响下划线 */
 }
 
 nav a {
-  margin: 0 1rem;
+  margin: 0 1.2rem;
   text-decoration: none;
   color: #4d4d4d;
   font-size: 0.95rem;
   letter-spacing: 0.1em;
   position: relative;
+  display: inline-block; /* 关键：只包裹文字 */
   transition: color 0.3s ease;
-  display: inline-block;
+  padding-bottom: 3px; /* 让线条有空间 */
 }
 
 nav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -3px; /* 微距，靠近文字 */
+  left: 50%; /* 从文字中点开始 */
+  bottom: 0;
   height: 1px;
   width: 0;
   background: #4d4d4d;
+  transform: translateX(-50%); /* 居中线条 */
   transition: width 0.3s ease;
 }
 
 nav a:hover::after {
-  width: 50%; /* 只在文字长度下展开 */
+  width: 100%; /* 展开到文字宽度 */
 }
+
 
 
 /* -------- Section Layout -------- */
