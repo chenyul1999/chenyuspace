@@ -50,8 +50,8 @@ nav {
 nav a {
   text-decoration: none;
   color: #4d4d4d;
-  font-size:1.5rem;
-  letter-spacing: 0.2em;
+  font-size:1.2rem;
+  letter-spacing: 0.1em;
   font-weight: 600; /* 加粗 */
   position: relative;
   display: inline-block;
